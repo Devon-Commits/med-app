@@ -1,0 +1,54 @@
+<% if account_signed_in? %>
+
+    <h1>Account Home</h1>
+    <hr/>
+    <p>Clinics on your account:  <%= link_to "Add Clinic", new_clinic_path, class:'btn btn-info btn-sm' %></p>
+
+    <table class="table">
+      <thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Account</th>
+					<th scope="col">Show</th>
+    		</tr>
+			</thead>
+			<tbody>
+				<% @clinics.each do |clinic| %>
+					<% if clinic.account == current_account %>
+
+						<tr>
+							<th scope="row"><%= clinic.name %></th>
+							<td><%= render clinic %></td>
+							<td><%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %></td>
+						</tr>
+										
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
+    <br>
+    <p>Doctors on your account:  <%= link_to "Add Doctor", new_doctor_path, class:'btn btn-info btn-sm' %></p>
+
+    <div class="row row-cols-4 text-center">
+      <% @doctors.each do |doctor| %>
+        <% if doctor.account == current_account %>
+        
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= doctor.name %></h5>
+                  <p class="card-text"><%= render doctor %></p>
+                  <%= link_to "Show this Doctor", doctor, class:'rounded-pill btn btn-secondary btn-sm' %>
+              </div>
+            </div>
+          </div>
+            
+        <% end %>
+      <% end %>
+    </div>
+
+<% else %>
+
+    <h3 class='text-center'>Please sign in to continue or sign up to get started!</h3>
+
+<% end %>

@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to "Med Test", root_path, class:'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav me-auto">
+      </ul>
+      <ul class="navbar-nav">
+
+        <% if account_signed_in? %>
+
+        <li class="nav-item me-2">
+          <%= link_to 'Account Overview', root_path, class:'nav-link btn btn-primary p-1 link-light' %>
+        </li>
+
+        <li class="nav-item me-2">
+          <%= link_to 'Clinics', clinics_path, class:'nav-link btn btn-primary p-1 link-light' %>
+        </li>
+
+        <li class="nav-item me-2">
+          <%= link_to 'Doctors', doctors_path, class:'nav-link btn btn-primary p-1 link-light' %>
+        </li>
+
+        <li class="nav-item me-2">
+          <%= button_to 'Sign Out', destroy_account_session_path, method: :delete, class:'nav-link btn btn-primary p-1 link-light'%>
+        </li>
+
+        <% else %>
+
+        <li class="nav-item me-2">
+          <%= link_to 'Sign In', new_account_session_path, class:'nav-link btn btn-primary p-1 link-light' %>
+        </li>
+
+        <li class="nav-item me-2">
+          <%= link_to 'Sign Up', new_account_registration_path, class:'nav-link btn btn-primary p-1 link-light' %>
+        </li>
+
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,24 @@
+<h1>Doctors</h1>
+
+<%= link_to "New Doctor", new_doctor_path, class:'btn btn-primary btn-sm' %>
+<hr/>
+
+<div id="doctors" class="container">
+  <div class="row row-cols-4 text-center">
+    <% @doctors.each do |doctor| %>
+      <% if doctor.account == current_account %>
+      
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= doctor.name %></h5>
+                  <p class="card-text"><%= render doctor %></p>
+                  <%= link_to "Show this doctor", doctor, class:'rounded-pill btn btn-secondary btn-sm' %>
+              </div>
+            </div>
+          </div>
+          
+      <% end %>
+    <% end %>
+  </div>
+</div>
