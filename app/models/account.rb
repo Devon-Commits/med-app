@@ -4,4 +4,5 @@ class Account < ApplicationRecord
 
   has_many :clinics
   has_many :doctors
+  has_many :patients
 end
