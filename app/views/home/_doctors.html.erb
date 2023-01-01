@@ -1,0 +1,27 @@
+<p>Doctors on your account:  <%= link_to "Add Doctor", new_doctor_path, class:'btn btn-info btn-sm' %></p>
+<div class="container text-start">
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th class="col-4" scope="col">Name</th>
+        <th class="col-4" scope="col">Field</th>
+        <th class="col-2" scope="col">Account</th>
+        <th class="col-2" scope="col">Show</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @doctors.each do |doctor| %>
+        <% if doctor.account == current_account %>
+
+          <tr>
+            <td scope="row"><%= doctor.name %></td>
+            <td><%= doctor.field %></td>
+            <td class="text-center"><%= doctor.account_id %></td>
+            <td class="text-center"><%= link_to "Show this Doctor", doctor, class:'rounded-pill btn btn-secondary btn-sm' %></td>
+          </tr>
+                  
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,27 @@
+<p>Clinics on your account:  <%= link_to "Add Clinic", new_clinic_path, class:'btn btn-info btn-sm' %></p>
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr class="text-start">
+        <th class="col-4" scope="col">Name</th>
+        <th class="col-4" scope="col">Address</th>
+        <th class="col-2" scope="col">Account</th>
+        <th class="col-2" scope="col">Show</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @clinics.each do |clinic| %>
+        <% if clinic.account == current_account %>
+
+        <tr class="text-start">
+          <th scope="row"><%= clinic.name %></th>
+          <td>To Be Added</td>
+          <td class="text-center"><%= clinic.account_id %></td>
+          <td class="text-center"><%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %></td>
+        </tr>
+                
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
