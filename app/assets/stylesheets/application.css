@@ -14,21 +14,37 @@
  *= require_self
  */
 
- .container {
-    border-radius: 15px;
- }
+.container {
+  border-radius: 15px;
+}
+
+.container.p-3 {
+  box-shadow: 2px 2px 5px black;
+}
+
+.card {
+  box-shadow: 2px 2px 5px darkslategray;
+}
 
 .card-body {
-    border-radius: 5px;
-    background-color: #ADD8E6;
-    border: thick double black;
- }
+  border-radius: 5px;
+  background-color: #ADD8E6;
+
+}
 
 .card-header.text-center.fs-5 {
-   background-color: #ADD8E6;
-   border: thick double black;
+  background-color: #ADD8E6;
+
 }
 
 .col-2 {
-   text-align: center;
+  text-align: center;
 }
+
+#calendar-day {
+  text-align: start;
+  vertical-align: top;
+  padding: 2px;
+  border: 2px solid black;
+}
+

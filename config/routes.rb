@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :clinics
 
   devise_for :accounts
+  get 'home/calendar'
   root to: "home#index"
 end
