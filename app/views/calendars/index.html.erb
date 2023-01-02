@@ -1,0 +1,39 @@
+<div class="container-fluid text-center table-responsive" id="calendar" >
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <p class="fs-3"><%= @month %> <%= @d.year %></p>
+          <p class="text-end m-0"><%= link_to "Appointments", appointments_path, class:'btn btn-secondary btn-sm' %></p>
+        </tr>
+        <tr>
+          <th scope="col" width="100px">Sunday</th>
+          <th scope="col" width="100px">Monday</th>
+          <th scope="col" width="100px">Tuesday</th>
+          <th scope="col" width="100px">Wednesday</th>
+          <th scope="col" width="100px">Thursday</th>
+          <th scope="col" width="100px">Friday</th>
+          <th scope="col" width="100px">Saturday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="calendar-week">
+          <% @days.times do |day| %>
+            <% if day % 7 == 0 %>
+              <tr></tr>
+            <% end %>
+            <td width="100px" height="100px" id="calendar-day"">
+              <%= day + 1 %>
+              <% current_account.appointments.order(:date, :time).each do |appointment| %>
+                <% if day + 1 == appointment.date.day %>
+                  <%= link_to appointment.time.strftime('%H:%M'), appointment_path(appointment), class:'d-grid text-center btn btn-primary btn-sm mt-1 p-0' %>
+                <% end %>
+              <% end %>
+
+            </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
