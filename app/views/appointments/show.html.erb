@@ -1,0 +1,8 @@
+<%= render @appointment %>
+
+<div>
+  <%= link_to "Edit this appointment", edit_appointment_path(@appointment) %> |
+  <%= link_to "Back to appointments", appointments_path %>
+
+  <%= button_to "Destroy this appointment", @appointment, method: :delete %>
+</div>

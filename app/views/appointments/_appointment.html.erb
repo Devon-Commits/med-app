@@ -1,0 +1,27 @@
+<div id="<%= dom_id appointment %>">
+  <p>
+    <strong>Time:</strong>
+    <%= appointment.time.strftime('%H:%M') %>
+  </p>
+
+  <p>
+    <strong>Date:</strong>
+    <%= appointment.date %>
+  </p>
+
+  <p>
+    <strong>Clinic:</strong>
+    <%= appointment.clinic.name %>
+  </p>
+
+  <p>
+    <strong>Doctor:</strong>
+    <%= appointment.doctor.name %>
+  </p>
+
+  <p>
+    <strong>Patient:</strong>
+    <%= appointment.patient.name %>
+  </p>
+
+</div>

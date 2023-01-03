@@ -5,8 +5,7 @@
 
 <div id="doctors" class="container">
   <div class="row row-cols-4 text-center">
-    <% @doctors.each do |doctor| %>
-      <% if doctor.account == current_account %>
+    <% current_account.doctors.each do |doctor| %>
       
           <div class="col">
             <div class="card">
@@ -18,7 +17,6 @@
             </div>
           </div>
           
-      <% end %>
     <% end %>
   </div>
 </div>

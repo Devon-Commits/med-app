@@ -10,17 +10,15 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <% @clinics.each do |clinic| %>
-        <% if clinic.account == current_account %>
+      <% current_account.clinics.limit(3).each do |clinic| %>
 
-          <tr>
-            <th scope="row"><%= clinic.name %></th>
-            <td>To Be Added</td>
-            <td class="text-center"><%= clinic.account_id %></td>
-            <td class="text-center"><%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %></td>
-          </tr>
+        <tr>
+          <td scope="row"><%= clinic.name %></td>
+          <td>To Be Added</td>
+          <td class="text-center"><%= clinic.account_id %></td>
+          <td class="text-center"><%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %></td>
+        </tr>
                 
-        <% end %>
       <% end %>
     </tbody>
   </table>

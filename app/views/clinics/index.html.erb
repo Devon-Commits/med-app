@@ -5,20 +5,18 @@
 
 <div id="clinics" class="container">
   <div class="row row-cols-4 text-center">
-    <% @clinics.each do |clinic| %>
-      <% if clinic.account == current_account %>
+    <% current_account.clinics.each do |clinic| %>
       
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><%= clinic.name %></h5>
-                  <p class="card-text"><%= render clinic %></p>
-                  <%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %>
-              </div>
-            </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= clinic.name %></h5>
+              <p class="card-text"><%= render clinic %></p>
+              <%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %>
           </div>
+        </div>
+      </div>
           
-      <% end %>
     <% end %>
   </div>
 </div>

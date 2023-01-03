@@ -1,7 +1,7 @@
 <h1>Patients</h1>
 
 <div id="patients">
-  <% @patients.each do |patient| %>
+  <% current_account.patients.each do |patient| %>
     <%= render patient %>
     <p>
       <%= link_to "Show this patient", patient %>

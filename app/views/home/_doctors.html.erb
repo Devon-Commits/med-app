@@ -10,17 +10,15 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <% @doctors.each do |doctor| %>
-        <% if doctor.account == current_account %>
+      <% current_account.doctors.limit(3).each do |doctor| %>
 
-          <tr>
-            <td scope="row"><%= doctor.name %></td>
-            <td><%= doctor.field %></td>
-            <td class="text-center"><%= doctor.account_id %></td>
-            <td class="text-center"><%= link_to "Show this Doctor", doctor, class:'rounded-pill btn btn-secondary btn-sm' %></td>
-          </tr>
+        <tr>
+          <td scope="row"><%= doctor.name %></td>
+          <td><%= doctor.field %></td>
+          <td class="text-center"><%= doctor.account_id %></td>
+          <td class="text-center"><%= link_to "Show this Doctor", doctor, class:'rounded-pill btn btn-secondary btn-sm' %></td>
+        </tr>
                   
-        <% end %>
       <% end %>
     </tbody>
   </table>

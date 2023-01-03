@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2023-01-02 08:36:09
+  date: 2023-01-02
+  calendar: one
+  clinic: one
+  doctor: one
+  patient: one
+
+two:
+  time: 2023-01-02 08:36:09
+  date: 2023-01-02
+  calendar: two
+  clinic: two
+  doctor: two
+  patient: two
