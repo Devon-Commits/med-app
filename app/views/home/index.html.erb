@@ -2,6 +2,17 @@
 
   <h1>Account Overview</h1>
   <hr/>
+
+  <h6>Summary:</h6>
+  <ul>
+    <li>Clinics on Account: <%= current_account.clinics.count %></li>
+    <li>Doctors on Account: <%= current_account.doctors.count %></li>
+    <li>Patients on Account: <%= current_account.patients.count %></li>
+  </ul>
+
+  <p>The account page will display the first 3 entries for Clinics, Doctors & Patients. Click "See All" for the full list.</p>
+
+  <hr/>
   
   <%= render "clinics" %>
   <br/>
