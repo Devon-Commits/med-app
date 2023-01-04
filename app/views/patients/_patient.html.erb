@@ -14,4 +14,17 @@
     <%= patient.account_id %>
   </p>
 
+  <p>
+    <strong>Appointments:</strong>
+  </p>
+  <% current_account.appointments.each do |appointment| %>
+    <% if patient.name == appointment.patient.name %>
+      <p>
+        <%= appointment.time.strftime('%-I:%M%P') %>
+        <%= appointment.date.strftime('%B %-d, %Y') %>
+      </p>
+    <% end %>
+  <% end %>
+
+
 </div>
