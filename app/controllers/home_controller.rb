@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  before_action :authenticate_account!
 
   def index
     @clinics = Clinic.all
