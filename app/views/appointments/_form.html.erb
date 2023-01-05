@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :visit_reason, style: "display: block" %>
+    <%= form.text_field :visit_reason %>
+  </div>
+
+  <div>
     <%= form.label :clinic_id, style: "display: block" %>
     <%= form.collection_select(:clinic_id, Clinic.all, :id, :name ) %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_233711) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_141741) do
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_233711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "account_id", null: false
+    t.text "visit_reason"
     t.index ["account_id"], name: "index_appointments_on_account_id"
     t.index ["clinic_id"], name: "index_appointments_on_clinic_id"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"

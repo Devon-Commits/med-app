@@ -1,22 +1,37 @@
 <h1>Doctors</h1>
 
 <%= link_to "New Doctor", new_doctor_path, class:'btn btn-primary btn-sm' %>
+
 <hr/>
 
-<div id="doctors" class="container">
-  <div class="row row-cols-4 text-center">
-    <% current_account.doctors.each do |doctor| %>
-      
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><%= doctor.name %></h5>
-                  <p class="card-text"><%= render doctor %></p>
-                  <%= link_to "Show this doctor", doctor, class:'rounded-pill btn btn-secondary btn-sm' %>
-              </div>
-            </div>
-          </div>
-          
-    <% end %>
-  </div>
-</div>
+<table class="table table-hover table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th class="col-4" scope="col">Name</th>
+        <th class="col-6" scope="col">Address</th>
+        <th class="col-2" scope="col">Show</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+
+      <% if current_account.doctors.empty? %>
+
+        <tr>
+          <td colspan="4" class="text-center">Added Doctors will appear here</td>
+        </tr>
+
+      <% else %>
+
+        <% current_account.doctors.order(:name).each do |doctor| %>
+
+          <tr>
+            <td scope="row"><%= doctor.name %></td>
+            <td><%= doctor.field %></td>
+            <td class="text-center"><%= link_to "Doctor Details", doctor, class:'btn btn-primary btn-sm' %></td>
+          </tr>
+                    
+        <% end %>
+
+      <% end %>
+    </tbody>
+  </table>

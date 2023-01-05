@@ -1,25 +1,38 @@
 <div id="<%= dom_id patient %>">
-  <p>
-    <strong>Name:</strong>
-    <%= patient.name %>
-  </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-4 border border-dark p-3">
+        <p>
+          <strong>Name:</strong>
+          <%= patient.name %>
+        </p>
 
-  <p>
-    <strong>Address:</strong>
-    <%= patient.address %>
-  </p>
+        <p>
+          <strong>Address:</strong>
+          <%= patient.address %>
+        </p>
 
-  <p>
-    <strong>Appointments:</strong>
-  </p>
-  <% current_account.appointments.each do |appointment| %>
-    <% if patient.name == appointment.patient.name %>
-      <p>
-        <%= appointment.time.strftime('%-I:%M%P') %>
-        <%= appointment.date.strftime('%B %-d, %Y') %>
-      </p>
-    <% end %>
-  <% end %>
+      </div>
+      <div class="col-8 border border-dark p-3">
+        <p>
+          <strong>Appointments:</strong>
+        </p>
+        <% current_account.appointments.each do |appointment| %>
+          <% if patient.name == appointment.patient.name %>
+          <%= link_to appointment_path(appointment) do %>
+            <%= appointment.time.strftime('%-I:%M%P') %>
+            <%= appointment.date.strftime('%B %-d, %Y') %>
+          <% end %>
+            with
+            <%= appointment.doctor.field %>
+            <%= appointment.doctor.name %>
+            <ul>
+              <li><%= appointment.visit_reason %></li>
+            </ul>
 
-
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

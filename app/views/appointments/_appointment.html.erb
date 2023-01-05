@@ -1,12 +1,17 @@
 <div id="<%= dom_id appointment %>">
   <p>
     <strong>Time:</strong>
-    <%= appointment.time.strftime('%H:%M') %>
+    <%= appointment.time.strftime('%-I:%M%P') %>
   </p>
 
   <p>
     <strong>Date:</strong>
-    <%= appointment.date %>
+    <%= appointment.date.strftime('%B %-d, %Y') %>
+  </p>
+
+  <p>
+    <strong>Reason for Visit:</strong>
+    <%= appointment.visit_reason %>
   </p>
 
   <p>

@@ -3,7 +3,7 @@
   <table class="table table-striped table-hover">
     <thead class="table-dark">
       <tr>
-        <th class="col-4" scope="col">Name</th>
+        <th class="col-4" scope="col">Clinic Name</th>
         <th class="col-6" scope="col">Address</th>
         <th class="col-2" scope="col">Show</th>
       </tr>
@@ -22,7 +22,7 @@
           <tr>
             <td scope="row"><%= clinic.name %></td>
             <td><%= clinic.address %></td>
-            <td class="text-center"><%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %></td>
+            <td class="text-center"><%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm border border-dark' %></td>
           </tr>
                   
         <% end %>

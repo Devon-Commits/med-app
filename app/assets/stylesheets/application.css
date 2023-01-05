@@ -23,18 +23,15 @@
   box-shadow: 2px 2px 5px black;
 }
 
-.card {
-  box-shadow: 2px 2px 5px darkslategray;
-}
-
 .card-body {
-  border-radius: 5px;
-  background-color: #ADD8E6;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #40B5AD;
 
 }
 
 .card-header.text-center.fs-5 {
-  background-color: #ADD8E6;
+  background-color: #40B5AD;
 
 }
 
@@ -51,5 +48,13 @@
 
 #calendar-week {
   text-decoration: none;
+}
+
+#show {
+  border: 2px solid black;
+}
+
+#clinic {
+  box-shadow: 2px 2px 5px black;
 }
 

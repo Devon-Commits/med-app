@@ -1,14 +1,16 @@
-<h3>Patient Profile</h3>
-<hr/>
-<%= render @patient %>
-
-<div>
-  <%= link_to "Edit this Patient", edit_patient_path(@patient) %> |
-  <%= link_to "Back to Patients", patients_path %>
+<div class="card" id="show">
+  <div class="card-header text-center fs-5">Patient Profile: <%= @patient.name %></div>
+  <div class="card-body">
+    <p class="card-text"><%= render @patient %></p>
+    <div class="text-end">
+      <%= link_to "Edit this Patient", edit_patient_path(@patient), class:'text-end btn btn-primary btn-sm' %>
+      <%= link_to 'Back to Patients', patients_path, class:'btn btn-primary btn-sm' %>
+    </div>
+  </div>
 </div>
 
 <div class="text-end mt-4">
-  <%= link_to "Delete Patient Record", @clinic, class:'btn btn-danger btn-sm', data: {
+  <%= link_to "Delete Patient Record", @patient, class:'btn btn-danger btn-sm', data: {
             turbo_method: :delete,
             turbo_confirm: "Are you sure you want to delete #{@patient.name}'s Record?"
         } %>

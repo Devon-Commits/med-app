@@ -1,13 +1,37 @@
 <div id="<%= dom_id doctor %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-4 border border-dark p-3">
+        <p>
+          <strong>Name:</strong>
+          <%= doctor.name %>
+        </p>
 
-  <p>
-    <strong>Field:</strong>
-    <%= doctor.field %>
-  </p>
+        <p>
+          <strong>Field:</strong>
+          <%= doctor.field %>
+        </p>
 
-  <p>
-    <strong>Account:</strong>
-    <%= doctor.account_id %>
-  </p>
+      </div>
+      <div class="col-8 border border-dark p-3">
+        <p>
+          <strong>Appointments:</strong>
+        </p>
+        <% current_account.appointments.order(:date, :time).each do |appointment| %>
+          <% if doctor.name == appointment.doctor.name %>
+          <u>
+            <%= appointment.time.strftime('%-I:%M%P') %>
+            <%= appointment.date.strftime('%B %-d, %Y') %>
+          </u>
+            seeing
+            <%= appointment.patient.name %>
+            <ul>
+              <li><%= appointment.visit_reason %></li>
+            </ul>
 
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
