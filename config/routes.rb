@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :clinics
 
   devise_for :accounts
-  root to: "home#index"
+  root "home#index"
 end
