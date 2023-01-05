@@ -3,6 +3,11 @@
 <div>
   <%= link_to "Edit this appointment", edit_appointment_path(@appointment) %> |
   <%= link_to "Back to appointments", appointments_path %>
+</div>
 
-  <%= button_to "Destroy this appointment", @appointment, method: :delete %>
+<div class="text-end mt-4">
+  <%= link_to "Delete Appointment", @clinic, class:'btn btn-danger btn-sm', data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure you want to Delete this Appointment?"
+        } %>
 </div>

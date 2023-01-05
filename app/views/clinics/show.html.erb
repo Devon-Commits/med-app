@@ -12,6 +12,6 @@
 <div class="text-end mt-4">
   <%= link_to "Delete Clinic", @clinic, class:'btn btn-danger btn-sm', data: {
             turbo_method: :delete,
-            turbo_confirm: "Are you sure you want to delete this Clinic?"
+            turbo_confirm: "Are you sure you want to delete the <#{@clinic.name}> Clinic?"
         } %>
 </div>
