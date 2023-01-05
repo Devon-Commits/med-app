@@ -1,5 +1,9 @@
 <h1>Patients</h1>
 
+<%= link_to "New Patient", new_patient_path, class:'btn btn-primary btn-sm' %>
+
+<hr/>
+
 <div id="patients">
   <% current_account.patients.each do |patient| %>
     <%= render patient %>
@@ -9,4 +13,4 @@
   <% end %>
 </div>
 
-<%= link_to "New patient", new_patient_path %>
+

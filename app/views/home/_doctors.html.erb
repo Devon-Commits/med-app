@@ -4,25 +4,35 @@
     <thead class="table-dark">
       <tr>
         <th class="col-4" scope="col">Name</th>
-        <th class="col-4" scope="col">Field</th>
-        <th class="col-2" scope="col">Account</th>
+        <th class="col-6" scope="col">Field</th>
         <th class="col-2" scope="col">Show</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <% current_account.doctors.limit(3).each do |doctor| %>
+
+      <% if current_account.doctors.empty? %>
 
         <tr>
-          <td scope="row"><%= doctor.name %></td>
-          <td><%= doctor.field %></td>
-          <td class="text-center"><%= doctor.account_id %></td>
-          <td class="text-center"><%= link_to "Show this Doctor", doctor, class:'rounded-pill btn btn-secondary btn-sm' %></td>
+          <td colspan="4" class="text-center">Added Doctors will appear here</td>
         </tr>
-                  
+
+      <% else %>
+
+        <% current_account.doctors.limit(3).each do |doctor| %>
+
+          <tr>
+            <td scope="row"><%= doctor.name %></td>
+            <td><%= doctor.field %></td>
+            <td class="text-center"><%= link_to "Show this Doctor", doctor, class:'rounded-pill btn btn-secondary btn-sm' %></td>
+          </tr>
+                    
+        <% end %>
+
+        <tr>
+          <td class="text-center p-0" colspan="4"><%= link_to "See all Doctors", doctors_path, class:'btn btn-secondary form-control'  %></td>
+        </tr>
+
       <% end %>
-      <tr>
-        <td class="text-center p-0" colspan="4"><%= link_to "See all Doctors", doctors_path, class:'btn btn-secondary form-control'  %></td>
-      </tr>
     </tbody>
   </table>
 </div>
