@@ -11,39 +11,43 @@
 
         <% if account_signed_in? %>
 
-        <li class="nav-item me-2">
-          <%= link_to 'Account Overview', root_path, class:'btn btn-primary p-1' %>
-        </li>
+          <li class="nav-item me-2">
+            <%= link_to 'Account Overview', root_path, class:'btn btn-primary btn-sm p-1' %>
+          </li>
 
-        <li class="nav-item me-2">
-          <%= link_to 'Calendar', calendars_path, class:'btn btn-primary p-1' %>
-        </li>
+          <li class="nav-item me-2">
+            <%= link_to 'Calendar', calendars_path, class:'btn btn-primary btn-sm p-1' %>
+          </li>
 
-        <li class="nav-item me-2">
-          <%= link_to 'Clinics', clinics_path, class:'btn btn-secondary p-1' %>
-        </li>
+          <li class="nav-item me-2">
+            <%= link_to 'Appointments', appointments_path, class:'btn btn-primary btn-sm p-1' %>
+          </li>
 
-        <li class="nav-item me-2">
-          <%= link_to 'Doctors', doctors_path, class:'btn btn-secondary p-1' %>
-        </li>
+          <li class="nav-item me-2">
+            <%= link_to 'Clinics', clinics_path, class:'btn btn-secondary btn-sm p-1' %>
+          </li>
 
-        <li class="nav-item me-2">
-          <%= link_to 'Patients', patients_path, class:'btn btn-secondary p-1' %>
-        </li>
+          <li class="nav-item me-2">
+            <%= link_to 'Doctors', doctors_path, class:'btn btn-secondary btn-sm p-1' %>
+          </li>
 
-        <li class="nav-item me-2">
-          <%= button_to 'Sign Out', destroy_account_session_path, method: :delete, class:'btn btn-secondary p-1'%>
-        </li>
+          <li class="nav-item me-2">
+            <%= link_to 'Patients', patients_path, class:'btn btn-secondary btn-sm p-1' %>
+          </li>
+
+          <li class="nav-item me-2">
+            <%= button_to 'Sign Out', destroy_account_session_path, method: :delete, class:'btn btn-secondary btn-sm p-1'%>
+          </li>
 
         <% else %>
 
-        <li class="nav-item me-2">
-          <%= link_to 'Sign In', new_account_session_path, class:'btn btn-primary p-1' %>
-        </li>
+          <li class="nav-item me-2">
+            <%= link_to 'Sign In', new_account_session_path, class:'btn btn-primary p-1' %>
+          </li>
 
-        <li class="nav-item me-2">
-          <%= link_to 'Sign Up', new_account_registration_path, class:'btn btn-primary p-1' %>
-        </li>
+          <li class="nav-item me-2">
+            <%= link_to 'Sign Up', new_account_registration_path, class:'btn btn-primary p-1' %>
+          </li>
 
         <% end %>
 

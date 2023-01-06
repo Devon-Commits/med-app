@@ -5,6 +5,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments or /appointments.json
   def index
     @appointments = Appointment.all
+    @time = Time.new(2023, 1, 1, 8, 0, 0)
+    @today = Date.today
   end
 
   # GET /appointments/1 or /appointments/1.json

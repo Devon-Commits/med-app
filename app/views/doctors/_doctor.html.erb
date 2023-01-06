@@ -19,10 +19,10 @@
         </p>
         <% current_account.appointments.order(:date, :time).each do |appointment| %>
           <% if doctor.name == appointment.doctor.name %>
-          <u>
+          <%= link_to appointment_path(appointment) do %>
             <%= appointment.time.strftime('%-I:%M%P') %>
             <%= appointment.date.strftime('%B %-d, %Y') %>
-          </u>
+          <% end %>
             seeing
             <%= appointment.patient.name %>
             <ul>
