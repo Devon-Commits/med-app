@@ -1,0 +1,39 @@
+<% if account_signed_in? %>
+
+  <nav class="navbar navbar-nav-scroll">
+    <div class="container-fluid list-group">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Summary</div>
+              Clinics on Account: <%= current_account.clinics.count %>
+          </div>
+          <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Content for list item
+          </div>
+          <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Content for list item
+          </div>
+          <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<% end %>
+
+
+<%
+=begin%>
+ <div class="col-2" id='sidebar'>
+  <%= render 'home/sidebar' %>
+</div> 
+<%
+=end%>

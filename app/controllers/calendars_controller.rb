@@ -6,6 +6,7 @@ class CalendarsController < ApplicationController
   def index
     @calendars = Calendar.all
     @d = Date.today
+    #@d = Date.new(2023, 1, 13)
     @days = @d.end_of_month().day
     @first_day = @d.beginning_of_month.strftime('%A')
     @month = @d.strftime('%B')

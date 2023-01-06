@@ -1,12 +1,13 @@
 <div id="<%= dom_id appointment %>">
-  <p>
-    <strong>Time:</strong>
-    <%= appointment.time.strftime('%-I:%M%P') %>
-  </p>
 
   <p>
     <strong>Date:</strong>
     <%= appointment.date.strftime('%B %-d, %Y') %>
+  </p>
+
+  <p>
+    <strong>Time:</strong>
+    <%= appointment.time.strftime('%-I:%M%P') %>
   </p>
 
   <p>
@@ -21,7 +22,8 @@
 
   <p>
     <strong>Doctor:</strong>
-    <%= appointment.doctor.name %>
+    <%= appointment.doctor.name %> -
+    <%= appointment.doctor.field %>
   </p>
 
   <p>
