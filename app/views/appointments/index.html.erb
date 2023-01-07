@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody class="table-group-divider"> 
-    <% for appointment in @appointments.order(:date, :time) do %>
+    <% current_account.appointments.order(:date, :time).each do |appointment|%>
       <tr>
         <td>
           <%= link_to appointment_path(appointment) do %>
