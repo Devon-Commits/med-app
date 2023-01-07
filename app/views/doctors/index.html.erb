@@ -1,8 +1,17 @@
 <div class="text-center">
   <h1>Doctors</h1>
 </div>
-<%= link_to "New Doctor", new_doctor_path, class:'btn btn-primary btn-sm' %>
+<div class="row">
 
+  <div class="col">
+    <%= link_to "New Doctor", new_doctor_path, class:'btn btn-primary btn-sm' %>
+  </div>
+
+  <div class="text-end col">
+    <%= link_to "Export Doctor CSV", doctor_export_path(format: 'csv'), class:'btn btn-secondary btn-sm' %>
+  </div>
+  
+</div>
 <hr/>
 
 <table class="table table-hover table-striped">

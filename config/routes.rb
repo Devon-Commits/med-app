@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :doctors
   resources :clinics
 
+  get '/doctor/export', to: 'doctors#export'
   get '/patient/export', to: 'patients#export'
 
   devise_for :accounts

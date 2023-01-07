@@ -16,6 +16,15 @@ class DoctorsController < ApplicationController
     @doctor = current_account.doctors.build
   end
 
+  def export
+    @doctors = current_account.doctors
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @doctors.to_csv, filename: "doctors-#{DateTime.now.strftime("%d%m%Y%H%M")}.csv"}
+    end
+  end
+
   # GET /doctors/1/edit
   def edit
   end
