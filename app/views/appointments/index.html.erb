@@ -17,19 +17,27 @@
 
     </tr>
   </thead>
-  <tbody class="table-group-divider"> 
-    <% current_account.appointments.order(:date, :time).each do |appointment|%>
-      <tr>
-        <td>
-          <%= link_to appointment_path(appointment) do %>
-            <%= appointment.date.strftime('%B %-d, %Y') %>
-          <% end %>
-        </td>
-        <td><%= appointment.time.strftime('%-I:%M%P') %></td>
-        <td><%= appointment.patient.name %></td>
-        <td><%= appointment.doctor.name %></td>
-        <td><%= appointment.clinic.name %></td>
-      </tr>
+  <tbody class="table-group-divider">
+    <% if current_account.appointments.empty? %>
+
+        <tr>
+          <td colspan="5" class="text-center">Added Appointments will appear here!</td>
+        </tr>
+
+    <% else %>
+      <% current_account.appointments.order(:date, :time).each do |appointment|%>
+        <tr>
+          <td>
+            <%= link_to appointment_path(appointment) do %>
+              <%= appointment.date.strftime('%B %-d, %Y') %>
+            <% end %>
+          </td>
+          <td><%= appointment.time.strftime('%-I:%M%P') %></td>
+          <td><%= appointment.patient.name %></td>
+          <td><%= appointment.doctor.name %></td>
+          <td><%= appointment.clinic.name %></td>
+        </tr>
+      <% end %>
     <% end %>
       
   </tbody>

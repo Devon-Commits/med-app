@@ -1,39 +1,31 @@
 <% if account_signed_in? %>
 
-  <nav class="navbar navbar-nav-scroll">
-    <div class="container-fluid list-group">
-      <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Summary</div>
-              Clinics on Account: <%= current_account.clinics.count %>
+  <nav class="navbar navbar-nav-scroll" id="fixed">
+    <div class="container list-group">
+      <ul class="list-group" id="shadow" >
+
+        <li class="list-group-item d-flex align-items-start" id="color-this">
+          <div id="color-this">
+            <div class="fw-bold">Upcoming Appointments</div>
+            <% @count = 0 %>
+            <ul>
+            <% current_account.appointments.order(:date, :time).each do |appointment|%>
+              <% if appointment.date > @today %>
+                <% @count += 1 %>
+                  <li>
+                    <%= link_to appointment_path(appointment) do %>
+                      <%= appointment.date.strftime('%B %-d, %Y') %>
+                      <%= appointment.time.strftime('%-I:%M%P') %>
+                    <% end %>
+                  </li>
+              <% end %>
+            <% end %>
+            </ul>
           </div>
-          <span class="badge bg-primary rounded-pill">14</span>
+          <span class="badge bg-primary rounded-pill"><%= @count %></span>
         </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Subheading</div>
-            Content for list item
-          </div>
-          <span class="badge bg-primary rounded-pill">14</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Subheading</div>
-            Content for list item
-          </div>
-          <span class="badge bg-primary rounded-pill">14</span>
-        </li>
+
       </ul>
     </div>
   </nav>
 <% end %>
-
-
-<%
-=begin%>
- <div class="col-2" id='sidebar'>
-  <%= render 'home/sidebar' %>
-</div> 
-<%
-=end%>

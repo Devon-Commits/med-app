@@ -14,6 +14,12 @@
  *= require_self
  */
 
+/* ------- Class ------- */
+
+.custom {
+  width: 130px !important;
+  height: 30px !important;
+}
 
 .container {
   border-radius: 15px;
@@ -39,6 +45,8 @@
   text-align: center;
 }
 
+/* ------- ID ------- */
+
 #calendar-day {
   text-align: start;
   vertical-align: top;
@@ -50,11 +58,24 @@
   text-decoration: none;
 }
 
-#show {
-  border: 2px solid black;
-}
-
 #clinic {
   box-shadow: 2px 2px 5px black;
+}
+
+#color-this {
+  background-color: #40B5AD;
+}
+
+#fixed {
+  position: fixed;
+  
+}
+
+#shadow {
+  box-shadow: 2px 2px 5px black;
+}
+
+#show {
+  border: 2px solid black;
 }
 
