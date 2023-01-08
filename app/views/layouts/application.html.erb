@@ -13,14 +13,14 @@
   </head>
   <body class="d-flex flex-column min-vh-100" style="background-color: #36454F"">
 
-    <header>
+    <header alt="navigation bar">
       <%= render 'home/nav' %>
     </header>
 
     <p class="notice text-center" style="color: white"><%= notice %></p>
     <p class="alert text-center" style="color: white"><%= alert %></p>
 
-    <div class='container wrapper flex-grow-1'>
+    <div class='container wrapper flex-grow-1' alt="page content">
       <div class="row">
         <% if current_page?(controller: '/home', action: 'index') %>
 
@@ -46,7 +46,7 @@
 
     <br/>
 
-    <footer>
+    <footer alt="footer">
       <%= render 'home/footer' %>
     </footer>
 

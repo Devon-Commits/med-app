@@ -18,14 +18,16 @@
     </tr>
   </thead>
   <tbody class="table-group-divider">
-    <% if current_account.appointments.empty? %>
+
+    <% if @appointments.empty? %>
 
         <tr>
           <td colspan="5" class="text-center">Added Appointments will appear here!</td>
         </tr>
 
     <% else %>
-      <% current_account.appointments.order(:date, :time).each do |appointment|%>
+
+      <% @appointments.order(:date, :time).each do |appointment|%>
         <tr>
           <td>
             <%= link_to appointment_path(appointment) do %>
@@ -38,6 +40,7 @@
           <td><%= appointment.clinic.name %></td>
         </tr>
       <% end %>
+      
     <% end %>
       
   </tbody>

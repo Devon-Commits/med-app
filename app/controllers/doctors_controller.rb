@@ -4,7 +4,7 @@ class DoctorsController < ApplicationController
 
   # GET /doctors or /doctors.json
   def index
-    @doctors = Doctor.all
+    @doctors = current_account.doctors
   end
 
   # GET /doctors/1 or /doctors/1.json
@@ -35,7 +35,7 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
-        format.html { redirect_to doctor_url(@doctor), notice: "Doctor was successfully created." }
+        format.html { redirect_to doctor_url(@doctor), notice: "Doctor file was successfully created." }
         format.json { render :show, status: :created, location: @doctor }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,7 +48,7 @@ class DoctorsController < ApplicationController
   def update
     respond_to do |format|
       if @doctor.update(doctor_params)
-        format.html { redirect_to doctor_url(@doctor), notice: "Doctor was successfully updated." }
+        format.html { redirect_to doctor_url(@doctor), notice: "Doctor file was successfully updated." }
         format.json { render :show, status: :ok, location: @doctor }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,7 +62,7 @@ class DoctorsController < ApplicationController
     @doctor.destroy
 
     respond_to do |format|
-      format.html { redirect_to doctors_url, notice: "Doctor was successfully destroyed." }
+      format.html { redirect_to doctors_url, notice: "Doctor was successfully removed." }
       format.json { head :no_content }
     end
   end

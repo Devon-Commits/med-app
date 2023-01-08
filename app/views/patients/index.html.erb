@@ -25,7 +25,7 @@
     </thead>
     <tbody class="table-group-divider">
 
-      <% if current_account.patients.empty? %>
+      <% if @patients.empty? %>
 
         <tr>
           <td colspan="4" class="text-center">Added Patients will appear here</td>
@@ -33,7 +33,7 @@
 
       <% else %>
 
-        <% current_account.patients.order(:name).each do |patient| %>
+        <% @patients.order(:name).each do |patient| %>
 
           <tr>
             <td scope="row"><%= patient.name %></td>

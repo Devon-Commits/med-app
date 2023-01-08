@@ -24,7 +24,7 @@
             <% end %>
             <td width="100px" height="100px" id="calendar-day"">
               <%= day + 1 %>
-              <% current_account.appointments.order(:date, :time).each do |appointment| %>
+              <% @appointments.order(:date, :time).each do |appointment| %>
 
                 <% if day + 1 == appointment.date.day %>
 

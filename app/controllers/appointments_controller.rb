@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.all
+    @appointments = current_account.appointments
     @time = Time.new(2023, 1, 1, 8, 0, 0)
     @today = Date.today
   end
@@ -55,7 +55,7 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
 
     respond_to do |format|
-      format.html { redirect_to appointments_url, notice: "Appointment was successfully destroyed." }
+      format.html { redirect_to appointments_url, notice: "Appointment was successfully deleted." }
       format.json { head :no_content }
     end
   end

@@ -10,7 +10,7 @@
     </thead>
     <tbody class="table-group-divider">
 
-      <% if current_account.patients.empty? %>
+      <% if @patients.empty? %>
 
         <tr>
           <td colspan="4" class="text-center">Added Patients will appear here</td>
@@ -18,7 +18,7 @@
 
       <% else %>
 
-        <% current_account.patients.limit(3).each do |patient| %>
+        <% @patients.limit(3).each do |patient| %>
 
           <tr>
             <td scope="row"><%= patient.name %></td>

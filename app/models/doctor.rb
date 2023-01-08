@@ -1,4 +1,8 @@
 class Doctor < ApplicationRecord
+  validates :name, presence: true
+  validates :field, presence: true
+  validates :account_id, presence: true
+  
   belongs_to :account
 
   has_many :appointments

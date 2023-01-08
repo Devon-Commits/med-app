@@ -4,7 +4,7 @@ class ClinicsController < ApplicationController
 
   # GET /clinics or /clinics.json
   def index
-    @clinics = Clinic.all
+    @clinics = current_account.clinics
   end
 
   # GET /clinics/1 or /clinics/1.json
@@ -53,7 +53,7 @@ class ClinicsController < ApplicationController
     @clinic.destroy
 
     respond_to do |format|
-      format.html { redirect_to clinics_url, notice: "Clinic was successfully destroyed." }
+      format.html { redirect_to clinics_url, notice: "Clinic was successfully removed." }
       format.json { head :no_content }
     end
   end

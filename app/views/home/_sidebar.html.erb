@@ -9,7 +9,7 @@
             <div class="fw-bold">Upcoming Appointments</div>
             <% @count = 0 %>
             <ul>
-            <% current_account.appointments.order(:date, :time).each do |appointment|%>
+            <% @appointments.order(:date, :time).each do |appointment|%>
               <% if appointment.date > @today %>
                 <% @count += 1 %>
                   <li>

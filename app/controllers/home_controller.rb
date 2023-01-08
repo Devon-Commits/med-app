@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
 
   def index
-    @clinics = Clinic.all
-    @doctors = Doctor.all
-    @patients = Patient.all
+    @appointments = current_account.appointments
+    @clinics = current_account.clinics
+    @doctors = current_account.doctors
+    @patients = current_account.patients
     @today = Date.today
   end
 
