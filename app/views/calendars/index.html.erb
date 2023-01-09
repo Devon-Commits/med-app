@@ -24,19 +24,29 @@
             <% end %>
             <td width="100px" height="100px" id="calendar-day"">
               <%= day + 1 %>
+
               <% @appointments.order(:date, :time).each do |appointment| %>
 
                 <% if day + 1 == appointment.date.day %>
 
                   <% if @d.day > appointment.date.day %>
+
                     <%= link_to appointment.time.strftime('%-I:%M%P'), appointment_path(appointment), class:'d-grid text-center btn btn-outline-dark btn-sm mt-1 p-0' %>
+
+                  <% elsif @d.day == appointment.date.day  && appointment.time < @time  %>
+
+                    <%= link_to appointment.time.strftime('%-I:%M%P'), appointment_path(appointment), class:'d-grid text-center btn btn-outline-dark btn-sm mt-1 p-0' %>
+
                   <% else %>
+
                     <%= link_to appointment.time.strftime('%-I:%M%P'), appointment_path(appointment), class:'d-grid text-center btn btn-primary btn-sm mt-1 p-0' %>
+                  
                   <% end %>
 
                 <% end %>
 
               <% end %>
+              
             </td>
           <% end %>
         </tr>

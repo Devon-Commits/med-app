@@ -1,36 +1,33 @@
+<h1 class="text-center" >Account Overview</h1>
+<hr/>
 
-<% if account_signed_in? %>
+<div class="row">
+  <div class="col"><h5 class="fw-normal">Logged in: <%= @account %></h5></div>
+  <div class="col"><h5 class="text-end fw-normal"><%= @today.strftime('%B %-d, %Y') %></h5></div>
+</div>
 
-  <h1 class="text-center" >Account Overview</h1>
-  <hr/>
+<br/>
 
-  <h5 class="text-end fw-normal"><%= @today.strftime('%B %-d, %Y') %></h5>
-  <h6>Summary:</h6>
-  <ul>
-    <li>Clinics on Account: <%= @clinics.count %></li>
-    <li>Doctors on Account: <%= @doctors.count %></li>
-    <li>Patients on Account: <%= @patients.count %></li>
-  </ul>
+<h6>Summary:</h6>
+<ul>
+  <li>Clinics on Account: <%= @clinics.count %></li>
+  <li>Doctors on Account: <%= @doctors.count %></li>
+  <li>Patients on Account: <%= @patients.count %></li>
+</ul>
 
-  <p>The account page will display the first 3 entries for Clinics, Doctors & Patients. Click "See All" for the full list.</p>
+<p>The account page will display the first 3 entries for Clinics, Doctors & Patients. Click "See All" for the full list.</p>
 
-  <hr/>
-  
-  <%= render "clinics" %>
-  <br/>
-  <hr/>
+<hr/>
 
-  <%= render "doctors" %>
-  <br/>
-  <hr/>
+<%= render "clinics" %>
+<br/>
+<hr/>
 
-  <%= render "patients" %>
-  <br/>
-  <hr/>
+<%= render "doctors" %>
+<br/>
+<hr/>
 
-<% else %>
-
-  <h3 class='text-center'>Please sign in to continue or sign up to get started!</h3>
-
-<% end %>
+<%= render "patients" %>
+<br/>
+<hr/>
 

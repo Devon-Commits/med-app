@@ -13,6 +13,7 @@
       <th scope="col">Patient</th>
       <th scope="col">Doctor</th>
       <th scope="col">Clinic</th>
+      <th scope="col">Status</th>
 
 
     </tr>
@@ -38,6 +39,20 @@
           <td><%= appointment.patient.name %></td>
           <td><%= appointment.doctor.name %></td>
           <td><%= appointment.clinic.name %></td>
+
+          <% if appointment.date > @today %>
+
+            <td>Upcoming</td>
+
+          <% elsif appointment.date == @today && appointment.time > @time %>
+
+            <td>Today</td>
+
+          <% else %>
+
+            <td>Finished</td>
+
+          <% end %>
         </tr>
       <% end %>
       

@@ -10,15 +10,29 @@
             <% @count = 0 %>
             <ul>
             <% @appointments.order(:date, :time).each do |appointment|%>
+
               <% if appointment.date > @today %>
+                
                 <% @count += 1 %>
-                  <li>
-                    <%= link_to appointment_path(appointment) do %>
-                      <%= appointment.date.strftime('%B %-d, %Y') %>
-                      <%= appointment.time.strftime('%-I:%M%P') %>
-                    <% end %>
-                  </li>
+                <li>
+                  <%= link_to appointment_path(appointment) do %>
+                    <%= appointment.date.strftime('%B %-d, %Y') %>
+                    <%= appointment.time.strftime('%-I:%M%P') %>
+                  <% end %>
+                </li>
+
+              <% elsif appointment.date == @today && appointment.time > @time %>
+                
+                <% @count += 1 %>
+                <li>
+                  <%= link_to appointment_path(appointment) do %>
+                    <%= appointment.date.strftime('%B %-d, %Y') %>
+                    <%= appointment.time.strftime('%-I:%M%P') %>
+                  <% end %>
+                </li>
+
               <% end %>
+              
             <% end %>
             </ul>
           </div>

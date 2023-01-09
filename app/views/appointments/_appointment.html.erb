@@ -1,34 +1,60 @@
 <div id="<%= dom_id appointment %>">
+  <div class="container">
+    <div class="row">
+      <div class="col">
 
-  <p>
-    <strong>Date:</strong>
-    <%= appointment.date.strftime('%B %-d, %Y') %>
-  </p>
+        <p>
+          <strong>Date:</strong>
+          <%= appointment.date.strftime('%B %-d, %Y') %>
+        </p>
+        
+        <p>
+          <strong>Time:</strong>
+          <%= appointment.time.strftime('%-I:%M%P') %>
+        </p>
 
-  <p>
-    <strong>Time:</strong>
-    <%= appointment.time.strftime('%-I:%M%P') %>
-  </p>
+      </div>
+      <div class="col text-end"">
+      
+        <p>
+          <strong>Clinic:</strong>
+          <%= appointment.clinic.name %>
+        </p>
 
-  <p>
-    <strong>Reason for Visit:</strong>
-    <%= appointment.visit_reason %>
-  </p>
+        <p>
+          <strong>Doctor:</strong>
+          <%= appointment.doctor.name %> -
+          <%= appointment.doctor.field %>
+        </p>        
 
-  <p>
-    <strong>Clinic:</strong>
-    <%= appointment.clinic.name %>
-  </p>
+      </div>
+    </div>
 
-  <p>
-    <strong>Doctor:</strong>
-    <%= appointment.doctor.name %> -
-    <%= appointment.doctor.field %>
-  </p>
+    <hr/>
 
-  <p>
-    <strong>Patient:</strong>
-    <%= appointment.patient.name %>
-  </p>
+    <div class="row">
+      <div class="col">
+        <p>
+          <strong>Patient:</strong>
+          <%= appointment.patient.name %>
+        </p>
 
+        <p>
+          <strong>Reason for Visit:</strong>
+          <%= appointment.visit_reason %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      
+        <div class="mb-3">
+          <label for="notes" class="form-label">Notes</label>
+          <textarea class="form-control" id="notes" rows="3"></textarea>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </div>

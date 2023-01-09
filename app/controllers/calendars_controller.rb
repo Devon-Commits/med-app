@@ -9,6 +9,7 @@ class CalendarsController < ApplicationController
     @days = @d.end_of_month().day
     @first_day = @d.beginning_of_month.strftime('%A')
     @month = @d.strftime('%B')
+    @time = DateTime.now
     @appointments = current_account.appointments
   end
 

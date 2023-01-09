@@ -5,7 +5,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments or /appointments.json
   def index
     @appointments = current_account.appointments
-    @time = Time.new(2023, 1, 1, 8, 0, 0)
+    #@time = Time.new(2023, 1, 1, 8, 0, 0)
+    @time = DateTime.now
     @today = Date.today
   end
 
