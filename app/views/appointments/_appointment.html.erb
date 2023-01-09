@@ -1,58 +1,41 @@
 <div id="<%= dom_id appointment %>">
-  <div class="container">
+  <div class="container p-4">
     <div class="row">
       <div class="col">
-
-        <p>
-          <strong>Date:</strong>
-          <%= appointment.date.strftime('%B %-d, %Y') %>
-        </p>
-        
-        <p>
-          <strong>Time:</strong>
-          <%= appointment.time.strftime('%-I:%M%P') %>
-        </p>
-
+        <p><strong>Date:</strong> <%= appointment.date.strftime('%B %-d, %Y') %></p>
+        <p><strong>Time:</strong> <%= appointment.time.strftime('%-I:%M%P') %></p>
       </div>
+
       <div class="col text-end"">
-      
-        <p>
-          <strong>Clinic:</strong>
-          <%= appointment.clinic.name %>
-        </p>
+        <p><strong>Clinic:</strong> <%= appointment.clinic.name %></p>
+        <p><strong>Doctor:</strong> <%= appointment.doctor.name %> - <%= appointment.doctor.field %></p>        
+      </div>
+    </div>
 
-        <p>
-          <strong>Doctor:</strong>
-          <%= appointment.doctor.name %> -
-          <%= appointment.doctor.field %>
-        </p>        
-
+    <div class="row">
+      <div class="col">
+        <p><strong>Patient:</strong> <%= appointment.patient.name %></p>
+        <p><strong>Reason for Visit:</strong> <%= appointment.visit_reason %></p>
       </div>
     </div>
 
     <hr/>
 
-    <div class="row">
-      <div class="col">
-        <p>
-          <strong>Patient:</strong>
-          <%= appointment.patient.name %>
-        </p>
+    <h5>Notes:</h5>
 
-        <p>
-          <strong>Reason for Visit:</strong>
-          <%= appointment.visit_reason %>
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-      
-        <div class="mb-3">
-          <label for="notes" class="form-label">Notes</label>
-          <textarea class="form-control" id="notes" rows="3"></textarea>
-        </div>
+    <% if @appointment.notes.empty? %>
+      <em>Added notes will appear here..</em>
+    <% else %>
+      <%= render @appointment.notes %>
+    <% end %>
 
+    <hr/>
+    <br/>
+
+    <div class="row">
+      <h5>Add a Note:</h5>
+      <div class="container">
+        <div class="col-md-6"><%= render 'notes/form' %></div>
       </div>
     </div>
 

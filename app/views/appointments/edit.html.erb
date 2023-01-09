@@ -1,10 +1,12 @@
-<h1>Editing appointment</h1>
+<h1 class="text-center">Editing Appointment</h1>
+
+<br/>
 
 <%= render "form", appointment: @appointment %>
 
 <br>
 
 <div>
-  <%= link_to "Show this appointment", @appointment %> |
-  <%= link_to "Back to appointments", appointments_path %>
+  <%= link_to "Show this appointment", @appointment, class:'text-end btn btn-primary btn-sm' %> 
+  <%= link_to "Back to appointments", appointments_path, class:'text-end btn btn-primary btn-sm' %>
 </div>
