@@ -1,0 +1,13 @@
+<%= form_with model: [ @appointment, @appointment.notes.build ] do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, placeholder: 'ex. John Doe' %>
+  </p>
+  <p>
+    <%= form.label "Note" %><br>
+    <%= form.text_area :body, class:'form-control', placeholder:'Description of observations or important notes about the appointment...' %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,12 @@
+<div class="container">
+  <p>
+    <strong><%= note.name %></strong> - <small><%= note.created_at.strftime('%-I:%M%P PST, %B %-d, %Y') %></small>
+    <%= link_to "Delete Note", [note.appointment, note], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+    <br/>
+    <em>&emsp;-  <%= note.body %></em>
+  </p>
+</div>
+<br/>
