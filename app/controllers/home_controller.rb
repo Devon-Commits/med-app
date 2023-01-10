@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_account!
+  before_action :authenticate_account!, except: [:landing]
 
 
   def index
@@ -10,7 +10,9 @@ class HomeController < ApplicationController
     @today = Date.today
     @time = DateTime.now
     @account = current_account.email.capitalize.split('@')[0]
- 
+  end
+
+  def landing
   end
 
 end

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   get '/doctor/export', to: 'doctors#export'
   get '/patient/export', to: 'patients#export'
+  get 'home', to: 'home#index'
 
   devise_for :accounts
-  root "home#index"
+  root "home#landing"
 end
