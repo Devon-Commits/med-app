@@ -12,7 +12,6 @@ class HomeController < ApplicationController
     @account = current_account.email.capitalize.split('@')[0]
   end
 
-  def landing
-  end
+  def landing; end
 
 end

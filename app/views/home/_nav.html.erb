@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
   <div class="container-fluid">
-    <%= link_to "Med Test", root_path, class:'navbar-brand' %>
+    <%= link_to "Med Test", root_path, data: {turbo: false}, class:'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,7 +36,7 @@
           </li>
 
           <li class="nav-item me-2">
-            <%= button_to 'Sign Out', destroy_account_session_path, method: :delete, class:'btn btn-secondary btn-sm p-1'%>
+            <%= button_to 'Sign Out', destroy_account_session_path, method: :delete, data: {turbo: false}, class:'btn btn-secondary btn-sm p-1'%>
           </li>
 
         <% else %>

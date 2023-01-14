@@ -1,1 +1,28 @@
-<%= content_tag(:div, "",id: "root", data: { controller: "react" })%>
+<% if account_signed_in? %>
+
+  <div class="container">
+    <p>Welcome! Click Account Overview at the top for a general look at your account and to see upcoming appointments.</p>
+  </div>
+
+<% else %>
+
+    <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <%= javascript_include_tag 'test.js' %>
+  </head>
+  <body>
+    <div>
+      <p>
+      <span id="testloop"></span>
+      <span id="cursor">|</span>
+      </p>
+    </div>
+  </body>
+  </html>
+
+<% end %>
+
+
+
+

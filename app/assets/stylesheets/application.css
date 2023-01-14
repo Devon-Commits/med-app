@@ -67,6 +67,10 @@
   background-color: #40B5AD;
 }
 
+#cursor {
+  font-size: 20px;
+}
+
 #fixed {
   position: fixed;
 }
