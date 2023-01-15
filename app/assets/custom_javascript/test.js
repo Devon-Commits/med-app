@@ -1,5 +1,5 @@
 
-const sentence = "Welcome to the Med Test app, this website is a proof-of-concept showing various uses of CRUD and the MVC.";
+const sentence = "Welcome to the Med App, this website is a proof-of-concept showing various uses of CRUD and the MVC.";
 
 let i = 0;
 

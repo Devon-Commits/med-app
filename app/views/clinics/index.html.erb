@@ -4,22 +4,30 @@
 <%= link_to "New Clinic", new_clinic_path, class:'btn btn-primary btn-sm' %>
 <hr/>
 
-<div id="clinics" class="container">
-  <div class="row row-cols-3 text-center">
-    <% @clinics.each do |clinic| %>
-      
-      <div class="col">
-        <div class="card p-1 m-1" id="clinic">
-          <div class="card-body">
-            <h5 class="card-title"><%= clinic.name %></h5>
-              <p class="card-text"><%= render clinic %></p>
-              <%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %>
+<% if @clinics.empty? %>
+
+  <p class='text-center'>Added Clinics will appear here.</p>
+
+<% else %>
+
+  <div id="clinics" class="container">
+    <div class="row row-cols-3 text-center">
+      <% @clinics.each do |clinic| %>
+        
+        <div class="col">
+          <div class="card p-1 m-1" id="clinic">
+            <div class="card-body">
+              <h5 class="card-title"><%= clinic.name %></h5>
+                <p class="card-text"><%= render clinic %></p>
+                <%= link_to "Show this Clinic", clinic, class:'rounded-pill btn btn-secondary btn-sm' %>
+            </div>
           </div>
         </div>
-      </div>
-          
-    <% end %>
+            
+      <% end %>
+    </div>
   </div>
-</div>
+
+<% end %>
 
 
