@@ -1,6 +1,6 @@
 <% if account_signed_in? %>
 
-  <div class="container">
+  <div class="container text-center">
     <p>Welcome! Click Account Overview at the top for a general look at your account and to see upcoming appointments.</p>
   </div>
 
@@ -9,12 +9,12 @@
     <!DOCTYPE html>
   <html lang="en">
   <head>
-    <%= javascript_include_tag 'test.js' %>
+    <%= javascript_include_tag 'intro.js' %>
   </head>
   <body>
-    <div>
+    <div class="container">
       <p>
-      <span id="testloop"></span>
+      <span id="sentenceloop"></span>
       <span id="cursor">|</span>
       </p>
     </div>
