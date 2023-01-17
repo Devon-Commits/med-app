@@ -19,17 +19,24 @@
           <td><%= form.label :time%><%= form.time_select :time ,:minute_step => 30 %></td>
       </tr>
 
-      <hr/>
-
       <tr>
-        <td><%= form.label :clinic_id %><%= form.collection_select(:clinic_id, Clinic.all, :id, :name ) %></td>
-      </tr>
-      <tr>
-        <td><%= form.label :doctor_id%><%= form.collection_select(:doctor_id, Doctor.all, :id, :name ) %></td>
+        <td colspan="2"><hr/></td>
       </tr>
 
       <tr>
-        <td><%= form.label :patient_id%><%= form.collection_select(:patient_id, Patient.all, :id, :name ) %></td>
+        <td><%= form.label :clinic_id %><%= form.collection_select(:clinic_id, current_account.clinics, :id, :name ) %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :doctor_id %><%= form.collection_select(:doctor_id, current_account.doctors, :id, :name ) %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :patient_id%><%= form.collection_select(:patient_id, current_account.patients, :id, :name ) %></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><hr/></td>
       </tr>
 
       <tr>
