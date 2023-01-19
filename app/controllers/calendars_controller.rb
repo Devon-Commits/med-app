@@ -5,7 +5,6 @@ class CalendarsController < ApplicationController
   # GET /calendars or /calendars.json
   def index
     @d = Date.today
-    #@d = Date.new(2023, 1, 13)
     @days = @d.end_of_month().day
     @first_day = @d.beginning_of_month.strftime('%A')
     @month = @d.strftime('%B')

@@ -1,11 +1,6 @@
-<% if account_signed_in? %>
 
-  <div class="container text-center">
-    <p>Welcome! Click Account Overview at the top for a general look at your account and to see upcoming appointments.</p>
-  </div>
-
-<% else %>
-
+<% if not account_signed_in? %>
+  
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -21,7 +16,19 @@
     </body>
   </html>
 
+<% else %>
+
+  <div class="container text-center">
+    <div class="btn-group-vertical">
+      <%= link_to 'Account Overview', home_path, class:'btn btn-primary' %>
+      <%= link_to 'Calendar', calendars_path, class:'btn btn-primary' %>
+      <%= link_to 'Appointments', appointments_path, class:'btn btn-primary' %>
+    </div>
+  </div>
+
 <% end %>
+
+
 
 
 

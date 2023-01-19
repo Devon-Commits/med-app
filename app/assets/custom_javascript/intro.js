@@ -62,7 +62,10 @@ window.onload = () => {
     clearInterval(cursor_timer);
     const element = document.getElementById('cursor');
     element.innerHTML = "";
+  }
 
+  function stopEverything() {
+    window.stop();
   }
 
 
@@ -74,4 +77,5 @@ window.onload = () => {
   setTimeout(deleteSentence, 16000);
   setTimeout(typeSentence.bind(null, sentence_3), 18000);
   setTimeout(stopCursor, 26000);
+  setTimeout(stopEverything, 28000);
 }
