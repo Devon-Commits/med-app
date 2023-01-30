@@ -3,16 +3,27 @@
 </div>
 <%= link_to "New Clinic", new_clinic_path, class:'btn btn-primary btn-sm' %>
 <hr/>
+<div class="row">
+  <div class="col-8">
+    <%= form_with url: "/clinics", method: :get do |f| %>
+      <%= f.label :query, "Search for:" %>
+      <%= f.search_field :query %>
+      <%= f.submit "Search" %>
+      <%= link_to "Reset", clinics_path %>
+    <% end %>
+  </div>
+</div>
+<br/>
 
 <% if @clinics.empty? %>
 
-  <p class='text-center'>Added Clinics will appear here.</p>
+  <p class='text-center'>No Clinic records</p>
 
 <% else %>
 
   <div id="clinics" class="container">
     <div class="row row-cols-3 text-center">
-      <% @clinics.each do |clinic| %>
+      <% @clinics.limit(12).each do |clinic| %>
         
         <div class="col">
           <div class="card p-1 m-1" id="clinic">

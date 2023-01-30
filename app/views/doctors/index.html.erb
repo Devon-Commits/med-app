@@ -13,12 +13,23 @@
   
 </div>
 <hr/>
+<div class="row">
+  <div class="col-8">
+    <%= form_with url: "/doctors", method: :get do |f| %>
+      <%= f.label :query, "Search for:" %>
+      <%= f.search_field :query %>
+      <%= f.submit "Search" %>
+      <%= link_to "Reset", doctors_path %>
+    <% end %>
+  </div>
+</div>
+<br/>
 
 <table class="table table-hover table-striped">
     <thead class="table-dark">
       <tr>
         <th class="col-4" scope="col">Name</th>
-        <th class="col-6" scope="col">Address</th>
+        <th class="col-6" scope="col">Field</th>
         <th class="col-2" scope="col">Show</th>
       </tr>
     </thead>
@@ -27,12 +38,12 @@
       <% if @doctors.empty? %>
 
         <tr>
-          <td colspan="4" class="text-center">Added Doctors will appear here</td>
+          <td colspan="4" class="text-center">No Doctor records</td>
         </tr>
 
       <% else %>
 
-        <% @doctors.order(:name).each do |doctor| %>
+        <% @doctors.order(:name).limit(25).each do |doctor| %>
 
           <tr>
             <td scope="row"><%= doctor.name %></td>

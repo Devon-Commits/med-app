@@ -5,6 +5,10 @@ class PatientsController < ApplicationController
   # GET /patients or /patients.json
   def index
     @patients = current_account.patients
+    if params[:query] && params[:query].length > 0
+      @patients = current_account.patients.where("name LIKE ?","%#{params[:query]}%").or(
+                  current_account.patients.where("address LIKE ?","%#{params[:query]}%"))
+    end
   end
 
   # GET /patients/1 or /patients/1.json
